@@ -15,5 +15,11 @@ function validasiform(){
     } else {
         document.getElementById("err_saran").innerHTML = "";
     }
+    if (document.formsar.saran.value == ""){
+        document.getElementById("err_upload").innerHTML = "Cannot be empty";
+        
+    } else {
+        document.getElementById("err_upload").innerHTML = "";
+    }
     return false;
 }

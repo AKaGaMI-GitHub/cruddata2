@@ -1,9 +1,9 @@
 <?php
     include "koneksi.php";
-    $nama = $_POST['nama'];
-    $email = $_POST['email'];
-    $feedback = $_POST['saran'];
-
-    mysqli_query("DELETE FROM feedback");
+    if (isset($_GET['delete'])){
+        $id = $_GET['delete'];
+        $koneksi->query("DELETE FROM feedback WHERE feedback.nama=$id") or 
+                die($koneksi->error());
+    }
     header("location:index.php?pesan=delete");
 ?>

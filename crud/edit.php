@@ -7,9 +7,6 @@
     <body>
     <?php
         include "koneksi.php";
-        $query_mysqli = mysqli_query($koneksi,"SELECT * FROM feedback"); 
-            $nomor = 1;
-            while($data = mysqli_fetch_array($query_mysqli)){
     ?>
     <h3>Edit Data</h3>
         <form action="update.php">
@@ -19,8 +16,8 @@
             <input type="text" name="email" id="email" class="form-control" placeholder="Enter Your E-Mail"><br>
             <label for="pesan">Feedback</label>
             <textarea class="form-control" name="saran" id="saran" rows="10" placeholder="Your Feedback"></textarea><br>
-            <input type="submit" value="Post" class="btn btn-outline-dark" name="login" id="login">
-            <?php } ?>
+            <input type="submit" value="Post" class="btn btn-outline-dark" name="ganti" id="ganti">
+
         </form>
     </body>
 </html>

@@ -84,7 +84,7 @@
           </section>
           <br>
           <!--contact us-->
-          <form action="../crud/input.php" method="post" onSubmit="validasiform()" name="formsar">
+          <form action="../crud/input.php" method="post" onSubmit="validasiform()" name="formsar" enctype="multipart/form-data">
               <section class="testimoni" id="testimoni">
                   <div class="container">
                     <div class="row">
@@ -110,6 +110,11 @@
                             <label for="pesan">Feedback</label>
                             <textarea class="form-control" name="saran" id="saran" rows="10" placeholder="Your Feedback"></textarea><br>
                             <small style="color: red" id="err_saran"></small>
+                          </div>
+                          <div class="form-group">
+                            <label for="upload">Upload Foto</label>
+                            <input type="file" name="file">
+                            <small style="color: red" id="err_upload"></small>
                           </div>
                           <div class="text-center">
                             <input type="submit" value="Post" class="btn btn-outline-dark" name="login" id="login">

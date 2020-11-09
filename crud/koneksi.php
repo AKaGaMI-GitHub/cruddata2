@@ -4,9 +4,5 @@
 	$pass = "";
 	$db = "crud_db";
 
-	$koneksi = mysqli_connect($host, $user, $pass, $db);
-
-	if(!$koneksi) {
-		die("Koneksi gagal : ".mysql_connect_error());
-	}
+	$koneksi = new mysqli($host, $user, $pass, $db) or die(mysqli_error($koneksi));
 ?>

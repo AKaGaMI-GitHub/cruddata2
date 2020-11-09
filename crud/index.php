@@ -25,28 +25,31 @@
         </br>
         <table border="2" class="table">
             <tr>
+                <th>Nomor</th>
                 <th>Nama</th>
                 <th>Email</th>
                 <th>Feedback</th>
-                <th>Action</th>
+                <th colspan="2">Action</th>
             </tr>
-        </table>
         <?php
             include "koneksi.php";
-            $query_mysqli = mysqli_query($koneksi,"SELECT * FROM feedback"); 
+            $result = $koneksi->query("SELECT * from feedback") or die(mysqli_error($koneksi));
             $nomor = 1;
-            while($data = mysqli_fetch_array($query_mysqli)){
+            while($row = $result->fetch_assoc()){
         ?>
-                <tr>
-                    <td><?php echo $nomor++; ?></td>
-                    <td><?php echo $data['nama'] ?></td>
-                    <td><?php echo $data['email'] ?></td>
-                    <td><?php echo $data['saran'] ?></td>
-                    <td>
-                        <a class="btn btn-outline-dark" href="edit.php?">Edit</a>
-                        <a class="btn btn-outline-dark" href="hapus.php?">Hapus</a>
-                    </td>
-                </tr>
+            <tr>
+                <td><?php echo $nomor++; ?></td>
+                <td><?php echo $row['nama'] ?></td>
+                <td><?php echo $row['email'] ?></td>
+                <td><?php echo $row['saran'] ?></td>
+                <td>
+                    <a class="btn btn-outline-dark" href="edit.php?" name="edit" id="edit"<?php echo $row['nama']?>>Edit</a>
+                    <a class="btn btn-outline-dark" href="hapus.php?" name="delete" id="delete"<?php echo $row['nama']?>>Hapus</a>
+                </td>
+                <br>
+            </tr>
             <?php } ?>
+         </table>
+
     </body>
 </html>
